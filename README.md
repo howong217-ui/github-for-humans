@@ -6,6 +6,19 @@ This is an early read-only MVP. It runs a normal public GitHub repository search
 optionally removes unwanted topics, then compares GitHub's star-sorted position
 with an evidence position. Every movement is explained.
 
+## Quick start
+
+Requires Node.js 18 or newer. There are no package dependencies.
+
+```sh
+git clone https://github.com/howong217-ui/github-for-humans.git
+cd github-for-humans
+npm start
+```
+
+Open <http://127.0.0.1:4173>, enter the kind of repository you need, and inspect
+why each result moved up or down. Stop the server with `Ctrl-C`.
+
 ## What it does
 
 - Searches live public repositories through the GitHub Search API.
@@ -20,16 +33,9 @@ The evidence balance is not a fraud, authorship, security, or quality verdict.
 High growth can be legitimate and low forks can be normal. Account type is
 intentionally excluded because an organization is not an identity guarantee.
 
-## Run the web app
+## Optional GitHub token
 
-Requires Node.js 18 or newer. There are no package dependencies.
-
-```sh
-npm start
-```
-
-Open <http://127.0.0.1:4173>. Public unauthenticated GitHub search is rate
-limited. A local token is optional:
+Public unauthenticated GitHub search is rate limited. A local token is optional:
 
 ```sh
 GITHUB_TOKEN=your_token npm start
