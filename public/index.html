@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Search GitHub by visible maintenance evidence instead of raw star count.">
+    <title>GitHub for Humans</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="GitHub for Humans home">
+        <span class="brand-mark">GH</span>
+        <span>GitHub for Humans</span>
+      </a>
+      <a class="quiet-link" href="#method">How ranking works</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">EVIDENCE-FIRST REPOSITORY DISCOVERY</p>
+        <h1>Find maintained projects,<br>not just popular ones.</h1>
+        <p class="hero-copy">Search public GitHub repositories, remove topics you do not want, and see every ranking decision explained.</p>
+
+        <form id="search-form" class="search-panel">
+          <label for="query">GitHub repository search</label>
+          <div class="search-row">
+            <input id="query" name="query" type="search" maxlength="256" required value="pdf editor stars:>100" placeholder="e.g. static site generator stars:>500">
+            <button type="submit">Search repositories</button>
+          </div>
+          <div class="examples" aria-label="Example searches">
+            <span>Try:</span>
+            <button type="button" data-query="terminal emulator stars:>500">terminal emulator</button>
+            <button type="button" data-query="local backup stars:>100">local backup</button>
+            <button type="button" data-query="database client stars:>500">database client</button>
+          </div>
+          <div class="filter-row">
+            <label class="check"><input id="exclude-ai" type="checkbox"> Hide AI-related topics</label>
+            <label class="topic-field" for="exclude-topics">Exclude other topics
+              <input id="exclude-topics" type="text" placeholder="crypto, gambling">
+            </label>
+            <label for="result-limit">Results
+              <select id="result-limit">
+                <option value="20">20</option>
+                <option value="30" selected>30</option>
+                <option value="50">50</option>
+              </select>
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section id="status" class="status" aria-live="polite"></section>
+
+      <section id="results-section" class="results-section" hidden>
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">SEARCH RESULT</p>
+            <h2 id="result-title">Evidence ranking</h2>
+          </div>
+          <div class="result-actions">
+            <button id="copy-link" type="button" class="secondary">Copy search link</button>
+            <a id="json-link" class="secondary button-link" href="#" target="_blank" rel="noreferrer">View JSON</a>
+          </div>
+        </div>
+        <div id="summary" class="summary-grid"></div>
+        <div id="results" class="results"></div>
+      </section>
+
+      <section id="method" class="method">
+        <p class="eyebrow">WHAT THIS DOES AND DOES NOT DO</p>
+        <div class="method-grid">
+          <h2>Facts before verdicts.</h2>
+          <div>
+            <p>The current MVP compares repository age, recent pushes, fork behavior, and star velocity. A result moves only when a visible rule applies.</p>
+            <p>It does not decide whether a repository is fake, safe, human-written, or high quality. High growth can be legitimate and low forks can be normal. The evidence is a prompt to inspect, not a substitute for judgment.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>Local-only prototype · Public GitHub metadata · No repository is modified</footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

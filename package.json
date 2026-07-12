@@ -1,0 +1,20 @@
+{
+  "name": "github-for-humans",
+  "version": "0.1.0",
+  "description": "Evidence-first discovery for public GitHub repositories.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/howong217-ui/github-for-humans.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "demo": "node src/cli.mjs fixtures/recent-repositories.json --exclude-ai --as-of 2026-07-12T00:00:00Z --html demo.html",
+    "start": "node src/server.mjs",
+    "test": "node --test"
+  }
+}
