@@ -114,7 +114,7 @@ async function search() {
     renderReport(payload);
     jsonLink.href = apiUrl;
     status.className = "status";
-    status.textContent = `${payload.summary.filteredCount} result${payload.summary.filteredCount === 1 ? "" : "s"} filtered. Rankings are based only on visible public metadata.`;
+    status.textContent = `Showing ${payload.summary.outputCount} of ${payload.summary.inputCount} fetched results. Rankings are based only on visible public metadata.`;
   } catch (error) {
     status.className = "status error";
     status.textContent = error.message;

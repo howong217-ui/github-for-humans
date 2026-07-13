@@ -6,6 +6,8 @@ This is an early read-only MVP. It runs a normal public GitHub repository search
 optionally removes unwanted topics, then compares GitHub's star-sorted position
 with an evidence position. Every movement is explained.
 
+![GitHub for Humans showing a live repository search, rank movement, and the evidence behind the top result](docs/search-results.jpg)
+
 ## Quick start
 
 Requires Node.js 18 or newer. There are no package dependencies.

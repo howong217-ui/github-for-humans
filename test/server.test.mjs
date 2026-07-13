@@ -34,6 +34,10 @@ test("server exposes health, static UI, and ranked JSON search", async () => {
     assert.equal(page.status, 200);
     assert.match(await page.text(), /Find maintained projects/);
 
+    const client = await fetch(`${baseUrl}/app.js`);
+    assert.equal(client.status, 200);
+    assert.match(await client.text(), /Showing.*fetched results/);
+
     const response = await fetch(`${baseUrl}/api/search?q=developer+tools&exclude_ai=1&per_page=20`);
     const report = await response.json();
     assert.equal(response.status, 200);
